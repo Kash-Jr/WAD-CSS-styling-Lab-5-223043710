@@ -1,135 +1,69 @@
-## ReadMe File for Lab 5
+WAD621S Lab 05 - Web Application Styling
 
-# Web Application Development (WAD621S) Styling Lab - Lab 05
+Overview
 
-## Overview
+This repository contains the submission for Lab 05 of the Web Application Development (WAD621S) course. The task was to style UI components, including cards, buttons, chips, forms, and others, using CSS while maintaining consistency with provided CSS variables. This document outlines the design decisions made and challenges faced during implementation.
 
-This is a hands-on styling lab where you'll write CSS to style various UI components from scratch. The HTML structure is provided, but you need to implement all the styling yourself.
+Design Decisions
 
-## Learning Objectives
+Unified Styling with CSS Variables
 
-By completing this lab, you will:
+CSS variables (e.g., --primary, --card-shadow) were applied consistently across components to ensure a cohesive design. For example, buttons use --primary for backgrounds, transitioning to --secondary on hover. This approach simplified theme switching, such as for dark mode, and ensured uniformity. Cards use background-color: var(--body-bg) to blend with the page background.
 
-1. Practice writing CSS for modern web components
-2. Learn to create consistent design systems
-3. Understand responsive design principles
-4. Implement interactive states (hover, active, focus)
-5. Work with CSS variables for theming
+Modern Visual Design
 
-## Getting Started
+Components were styled with rounded corners (e.g., 10px for buttons, 30px for cards) and subtle shadows for a polished look. Hover effects, such as cards shifting with transform: translateY(-7px) and deeper shadows, enhance interactivity. Buttons use border-radius: 10px and cursor: grab for a distinct, engaging feel.
 
-1. Fork/Clone the Repository to have it locally
-2. Open the HTML file in a code editor (VS Code)
-3. Examine the HTML structure of each component
-4. Write CSS rules in the provided style file
-5. Open the HTML file in a browser to see your results
-6. Use developer tools to test and debug your styles
+Responsive Layout
 
-## Challenge Components
+A media query for screens below 768px stacks elements like .component-grid and .nav vertically, ensuring mobile compatibility. The component grid uses grid-template-columns: 1fr for single-column card display, meeting the lab’s responsive design requirement.
 
-### 1. Cards
-- Create cards with shadow effects
-- Implement rounded corners
-- Add hover effects with transitions
-- Style card images and content areas
+Interactive Feedback
 
-### 2. Buttons
-- Create a primary button style
-- Implement success, warning, and info variants
-- Create an outline button style
-- Add disabled state styling
-- Style buttons with icons
+Hover, focus, and active states were styled for usability. Buttons change color on hover, form inputs gain a blue glow on focus, and chips switch to --primary when active. For example, the slider thumb scales with transform: scale(1.5) on hover, providing clear visual cues.
 
-### 3. Chips
-- Create rounded filter chips
-- Implement active state styling
-- Style chips with icons
-- Add close button styling
+Dark Theme Compatibility
 
-### 4. Navigation
-- Create a horizontal navigation bar
-- Style active state indicators
-- Add hover effects
-- Ensure proper spacing
+Dark theme styles were applied to form inputs, tables, and the code editor using --dark backgrounds and --light text. Chips in dark mode maintain readability with adjusted backgrounds, ensuring consistency across themes.
 
-### 5. Forms
-- Style form labels and inputs
-- Implement focus states
-- Create consistent spacing
-- Style textareas
+Challenges Encountered
 
-### 6. Responsive Design
-- Make the component grid responsive
-- Implement mobile-friendly styles
-- Use media queries effectively
+Achieving Visual Consistency
 
-### 7. Advanced: CSS Variables
-- Implement a color system using CSS variables
-- Create theme switching functionality
-- Ensure consistent theming across components
+Varying HTML structures complicated uniform styling. Initial attempts led to inconsistent border-radius and padding values. Standardizing on values like 20px padding for cards and 25px border-radius for chips, along with CSS variables, resolved this, ensuring components like cards and widgets aligned visually.
 
-## CSS Variables Provided
+Styling Interactive Components
 
-We've provided a set of CSS variables to help you maintain consistency:
+Styling sliders and switches for cross-browser consistency was difficult. The slider required appearance: none and a custom ::-webkit-slider-thumb, while switches used transform: translateX(20px) for animations. Browser testing refined these elements for smooth operation.
 
-```css
-:root {
-  --primary: #4361ee;
-  --secondary: #3a0ca3;
-  --success: #4cc9f0;
-  --warning: #f72585;
-  --info: #7209b7;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
-  --white: #ffffff;
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
-  --body-bg: #f5f7ff;
-  --card-bg: #ffffff;
-  --text-color: #212529;
-  --border-color: #e9ecef;
-}
-```
+Mobile Layout Adjustments
 
-## Tips for Success
+Components like button groups and chips appeared cramped on mobile due to larger gaps (e.g., 60px for .chips-container). A media query adjusted layouts to stack vertically, with testing on smaller screens ensuring usability and proper spacing.
 
-1. **Start Simple**: Begin with basic styling before adding advanced effects
-2. **Use Developer Tools**: Test and debug your styles in the browser
-3. **Be Consistent**: Maintain consistent spacing, colors, and styles
-4. **Test Responsiveness**: Check your styles at different screen sizes
-5. **Reference Materials**: Use MDN Web Docs and other CSS references
+Dark Theme Integration
 
-## Evaluation Criteria
+Ensuring all components adapted to the dark theme without disrupting the light theme was complex. Overrides for .dark-theme .form-input and .dark-theme .code-editor were tested with the customization panel to maintain readability and consistency.
 
-Your implementation will be evaluated on:
+Managing Element Positioning
 
-1. **Visual Design**: Attractive and modern appearance
-2. **Consistency**: Uniform styling across components
-3. **Functionality**: Proper hover states and interactions
-4. **Responsiveness**: Works well on different screen sizes
-5. **Code Quality**: Well-organized and efficient CSS
+Overlapping issues with modals and tooltips arose due to z-index conflicts. Setting z-index: 1000 for .modal and adjusting tooltip positioning (e.g., bottom: 125%) ensured proper layering, with the .panel-pull-tab styled at z-index: 999 to avoid conflicts.
 
-## Extension Challenges
+Submission Notes
 
-If you finish early, try these additional challenges:
 
-1. Add animations to component interactions
-2. Implement a dark/light mode toggle
-3. Create additional component variants
-4. Add focus styles for accessibility
-5. Optimize your CSS for performance
 
-## Resources
 
-- [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [CSS Tricks Guides](https://css-tricks.com/guides/)
-- [Google Fonts](https://fonts.google.com/)
-- [Color Hunt](https://colorhunt.co/) for color palette inspiration
 
-## Submission
+Styles are implemented in styles.css and applied to index.html.
 
-Submit your completed HTML file with all CSS implemented on GitHub. Include a brief document explaining your design decisions and any challenges you faced.
 
-Good luck, and have fun styling!
+
+Tested in Chrome and Firefox for responsiveness and theme functionality.
+
+
+
+JavaScript in scripting.js manages interactivity (e.g., modals, toasts), styled to match the design system.
+
+
+
+Core styling requirements were prioritized, with some optional features (e.g., custom theme toggle) omitted due to time constraints.
