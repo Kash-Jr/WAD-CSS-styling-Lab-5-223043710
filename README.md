@@ -1,5 +1,7 @@
 WAD621S Lab 05 - Web Application Styling
 
+ref: https://github.com/Kash-Jr/WAD-CSS-Lab-5
+
 Overview
 
 This repository contains the submission for Lab 05 of the Web Application Development (WAD621S) course. The task was to style UI components, including cards, buttons, chips, forms, and others, using CSS while maintaining consistency with provided CSS variables. This document outlines the design decisions made and challenges faced during implementation.
